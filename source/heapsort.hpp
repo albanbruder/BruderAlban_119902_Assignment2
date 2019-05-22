@@ -5,6 +5,14 @@
 
 namespace buw {
 
+  /**
+   * Restores heap structure for all children of the given parent.
+   * 
+   * @param first An iterator.
+   * @param last Another iterator.
+   * @param last Yet another iterator.
+   * @param comp A comparison function.
+   */
   template<typename Iterator, typename Compare>
   void heapify(Iterator first, Iterator last, Iterator parent, Compare comp)
   {
@@ -22,6 +30,13 @@ namespace buw {
     }
   }
 
+  /**
+   * Builds heap structure in container.
+   * 
+   * @param first An iterator.
+   * @param last Another iterator.
+   * @param comp A comparison function.
+   */
   template<typename Iterator, typename Compare>
   void build_heap(Iterator first, Iterator last, Compare comp)
   {
@@ -32,6 +47,14 @@ namespace buw {
     }
   }
 
+  /**
+   * Sorts a container using the heapsort algorithm.
+   * Container MUST be a heap.
+   * 
+   * @param first An iterator.
+   * @param last Another iterator.
+   * @param comp A comparison function.
+   */
   template<typename Iterator, typename Compare>
   void sort_heap(Iterator first, Iterator last, Compare comp) 
   {
@@ -43,6 +66,13 @@ namespace buw {
     }
   }
 
+  /**
+   * Sorts an unsorted container using the heapsort algorithm.
+   * 
+   * @param first An iterator.
+   * @param last Another iterator.
+   * @param comp A comparison function.
+   */
   template<typename Iterator, typename Compare>
   void heapsort(Iterator first, Iterator last, Compare comp)
   {
@@ -50,6 +80,12 @@ namespace buw {
     buw::sort_heap(first, last, comp);
   }
 
+  /**
+   * Sorts an unsorted container using the heapsort algorithm.
+   * 
+   * @param first An iterator.
+   * @param last Another iterator.
+   */
   template<typename Iterator>
   void heapsort(Iterator first, Iterator last)
   {
