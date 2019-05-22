@@ -1,15 +1,21 @@
-#include "heapsort.cpp"
+#include "heapsort.hpp"
 #include <vector>
 #include <iostream>
 
 int main(int argc, char *argv[]) {
-  std::vector<int> numbers{1,5,3,4,2,8,6,9,7};
+  std::vector<int> numbers(20);
 
-  heapsort(numbers.begin(), numbers.end());
+  for(auto& num : numbers) {
+    num = std::rand() % 100;
+  }
 
-  std::for_each(numbers.begin(), numbers.end(), [](int n) {
-    std::cout << n;
-  });
+  heapsort(
+    std::begin(numbers), 
+    std::end(numbers), 
+    [](int l, int r) { return l < r; }
+  );
 
+  std::copy(std::cbegin(numbers), std::cend(numbers), std::ostream_iterator<int>(std::cout, " "));
+  std::cout << "\n";
   return 0;
 }

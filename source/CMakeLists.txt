@@ -1,5 +1,5 @@
 # Build example
-add_executable(example example.cpp heapsort.cpp)
+add_executable(example example.cpp)
 
 # Build gui
 link_directories(${GTKMM_LIBRARY_DIRS})
