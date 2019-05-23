@@ -27,6 +27,27 @@ TEST_CASE("sort array of strings with compare functor", "[heapsort]")
   REQUIRE(std::is_sorted(std::cbegin(a), std::cend(a), std::less<std::string>()));
 }
 
+TEST_CASE("sort already sorted vector", "[heapsort]")
+{
+  std::vector<int> v{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  buw::heapsort(std::begin(v), std::end(v));
+  REQUIRE(std::is_sorted(std::cbegin(v), std::cend(v), std::less<int>()));
+}
+
+TEST_CASE("sort reverse sorted vector", "[heapsort]")
+{
+  std::vector<int> v{10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+  buw::heapsort(std::begin(v), std::end(v));
+  REQUIRE(std::is_sorted(std::cbegin(v), std::cend(v), std::less<int>()));
+}
+
+TEST_CASE("sort empty vector", "[heapsort]")
+{
+  std::vector<int> v;
+  buw::heapsort(std::begin(v), std::end(v));
+  REQUIRE(v.size() == 0);
+}
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
